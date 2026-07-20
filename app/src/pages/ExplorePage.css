@@ -1,0 +1,69 @@
+.explore-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.view-toggle {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.view-toggle button {
+  border: none;
+  background: transparent;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.view-toggle button.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.filters {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.map-wrap {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.shame-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.shame-table th,
+.shame-table td {
+  text-align: left;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.metoo-form {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.secondary-btn.small {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.78rem;
+}
+
+.muted {
+  color: var(--muted);
+}

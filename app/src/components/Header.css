@@ -1,0 +1,54 @@
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 1.1rem;
+  flex: 1;
+}
+
+.site-header nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.92rem;
+  padding: 0.3rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.site-header nav a.active {
+  border-bottom-color: var(--accent);
+  font-weight: 600;
+}
+
+.lang-toggle {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.lang-toggle button {
+  border: none;
+  background: transparent;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.lang-toggle button.active {
+  background: var(--accent);
+  color: #fff;
+}

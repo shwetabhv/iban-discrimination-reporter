@@ -1,0 +1,44 @@
+.report-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 640px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.field-row .field {
+  flex: 1 1 220px;
+}
+
+.char-count {
+  align-self: flex-end;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-error {
+  color: #8f1f1f;
+  background: #fbe4e4;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}

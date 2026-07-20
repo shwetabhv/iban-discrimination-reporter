@@ -1,0 +1,50 @@
+.iban-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.iban-input input {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0.03em;
+}
+
+.iban-input input.valid {
+  border-color: #1a7f4b;
+  background: #f0fbf5;
+}
+
+.iban-input input.invalid {
+  border-color: #c62828;
+  background: #fdf1f1;
+}
+
+.iban-input .hint {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.status-line {
+  min-height: 1.4rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+
+.badge-valid {
+  color: #0f5d33;
+  background: #e3f7ea;
+}
+
+.badge-invalid {
+  color: #8f1f1f;
+  background: #fbe4e4;
+}

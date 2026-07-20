@@ -1,0 +1,30 @@
+{
+  "name": "iban-reporter-api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Azure Functions API for the IBAN Discrimination Reporter",
+  "main": "dist/src/functions/*.js",
+  "scripts": {
+    "build": "tsc -p .",
+    "watch": "tsc -p . --watch",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "prestart": "npm run clean && npm run build",
+    "start": "func start",
+    "seed:local": "node ./dist/src/scripts/seedLocal.js"
+  },
+  "dependencies": {
+    "@azure/data-tables": "^13.3.1",
+    "@azure/functions": "^4.7.2",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/uuid": "^10.0.0",
+    "typescript": "^5.7.3",
+    "azure-functions-core-tools": "^4.0.7030",
+    "azurite": "^3.33.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

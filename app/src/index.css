@@ -1,0 +1,143 @@
+:root {
+  --text: #33323b;
+  --text-h: #0c0b10;
+  --muted: #6b6975;
+  --bg: #fff;
+  --surface: #f7f6f9;
+  --border: #e2e0e6;
+  --accent: #7c3aed;
+  --accent-hover: #6425d0;
+
+  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  font: 16px/1.5 var(--sans);
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #d6d4dd;
+    --text-h: #f5f4f8;
+    --muted: #9c99a8;
+    --bg: #121118;
+    --surface: #1b1a22;
+    --border: #302e39;
+    --accent: #c084fc;
+    --accent-hover: #d3a3ff;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.app-shell {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-h);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.primary-btn,
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.3rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background: var(--accent);
+  color: #fff;
+}
+
+.primary-btn:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.primary-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.secondary-btn {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text-h);
+}
+
+.secondary-btn:hover {
+  border-color: var(--accent);
+}
+
+.page {
+  padding-bottom: 2rem;
+}

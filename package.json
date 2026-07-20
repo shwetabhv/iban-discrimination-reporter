@@ -1,0 +1,19 @@
+{
+  "name": "iban-discrimination-reporter",
+  "private": true,
+  "version": "0.1.0",
+  "description": "FairIBAN — report IBAN discrimination, generate a complaint letter, see it on a public map.",
+  "scripts": {
+    "install:all": "npm install --prefix app && npm install --prefix api",
+    "dev": "concurrently -n azurite,api,app -c yellow,blue,green \"npm:dev:azurite\" \"npm:dev:api\" \"npm:dev:app\"",
+    "dev:azurite": "azurite --silent --location .azurite --debug .azurite/debug.log",
+    "dev:api": "npm run start --prefix api",
+    "dev:app": "npm run dev --prefix app",
+    "build": "npm run build --prefix app && npm run build --prefix api",
+    "seed": "node scripts/seed.mjs"
+  },
+  "devDependencies": {
+    "azurite": "^3.33.0",
+    "concurrently": "^9.1.2"
+  }
+}

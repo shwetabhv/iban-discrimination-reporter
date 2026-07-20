@@ -1,0 +1,28 @@
+node_modules/
+dist/
+.vite/
+
+# Azure Functions
+api/local.settings.json
+api/bin/
+api/obj/
+api/dist/
+
+# Azurite local storage emulator
+.azurite/
+__azurite_db*__.json
+__blobstorage__/
+__queuestorage__/
+__azurite_db*__.sqlite
+
+# Static Web Apps CLI
+swa-cli.config.json
+
+.DS_Store
+*.log
+.env
+.env.local
+
+# Word/Office lock files
+~$*.docx
+~$*.doc

@@ -1,0 +1,49 @@
+.letter-subtitle {
+  color: var(--muted);
+}
+
+.letter-toolbar {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.letter-body {
+  white-space: pre-wrap;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.2rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  max-width: 720px;
+  max-height: 60vh;
+  overflow: auto;
+}
+
+.letter-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.context-recap {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.letter-footer-nav {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
