@@ -36,13 +36,41 @@ This resets and reloads ~50 fictional reports across 12+ countries and all secto
 
 ## Deploying to Azure (free tier)
 
-1. Push this repo to GitHub.
-2. Create an **Azure Static Web App** (Free plan), pointing at the repo with:
+The repo is already on GitHub. What's left is creating the Azure Static Web App resource and linking it to that repo — done once, in the Azure Portal.
+
+### 1. Create the resource
+
+1. Go to [portal.azure.com](https://portal.azure.com) → **Create a resource** → search **"Static Web App"** → **Create**.
+2. **Basics**:
+   - Subscription / resource group: pick or create one
+   - Name: e.g. `fairiban`
+   - Plan type: **Free**
+   - Region for Functions API: any region close to you
+3. **Deployment details** → source: **GitHub** → sign in → pick:
+   - Organization: `shwetabhv`
+   - Repository: `iban-discrimination-reporter`
+   - Branch: `main`
+4. **Build details**:
+   - Build presets: React (or Custom)
    - App location: `app`
    - Api location: `api`
    - Output location: `dist`
-3. Azure creates `.github/workflows/azure-static-web-apps.yml` automatically (a matching one is already included here) and adds the `AZURE_STATIC_WEB_APPS_API_TOKEN` secret — push to `main` and it deploys.
-4. The Functions API uses the Static Web App's linked storage account (`AzureWebJobsStorage`) for its `Reports` table — no Cosmos DB needed, so there's nothing else to provision. Set `SEED_SECRET` in the Function App's configuration to something private before your talk.
+5. **Review + create** → **Create**.
+
+Azure commits a new GitHub Actions workflow file into the repo and adds a secret (`AZURE_STATIC_WEB_APPS_API_TOKEN_<random>`) automatically as part of this step.
+
+### 2. Reconcile the workflow file
+
+This repo already ships with `.github/workflows/azure-static-web-apps.yml`, written ahead of time to match the same app/api/output locations. Azure's wizard doesn't know that and will add its **own** new workflow file (a different filename, referencing its own secret name) — so after the resource finishes creating, pull the repo and:
+
+- **Delete** the pre-written `.github/workflows/azure-static-web-apps.yml`, and keep Azure's auto-generated one (already wired to the correct secret), **or**
+- **Delete** Azure's auto-generated workflow file, and edit the pre-written one so `azure_static_web_apps_api_token` points at whatever secret name Azure created.
+
+Either way, end state should be exactly **one** Static Web Apps workflow file in `.github/workflows/` — two active workflows on the same branch/paths will both try to deploy on every push.
+
+### 3. Post-deploy config
+
+The Functions API uses the Static Web App's linked storage account (`AzureWebJobsStorage`) for its `Reports` table — no Cosmos DB needed, so there's nothing else to provision. In the Static Web App resource's **Configuration** blade, set `SEED_SECRET` to something private (not the `letmeseed-dev` local default) before sharing the live URL.
 
 Full architecture is documented in the [FRD](./iban-discrimination-reporter-frd-hackathon.md#5-recommended-azure-architecture-free-tier).
 
